@@ -1,0 +1,74 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+#EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/samples/contests/robocup/protos/RobocupSoccerField.proto"
+EXTERNPROTO "../protos/RobocupSoccerField.proto"
+EXTERNPROTO "../protos/SUSTAINA-OP.proto"
+EXTERNPROTO "../protos/RobocupSoccerBall.proto"
+
+WorldInfo {
+  info [
+    "SUSTAINA-OP robot."
+    "The SUSTAINA-OP robot simulation model"
+  ]
+  title "SUSTAINA-OP"
+  basicTimeStep 8
+  contactProperties [
+    ContactProperties {
+      material2 "grass"
+      softCFM            0.0
+      maxContactJoints   10
+    }
+  ]
+}
+Viewpoint {
+  orientation 0.209 -0.619 -0.757 5.44
+  position -7.11 -5.15 4.75
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+    castShadows FALSE
+}
+RobocupSoccerField {
+    size "kid"
+}
+
+RobocupSoccerBall {
+  translation -3 0 0.13
+}
+SUSTAINA-OP{
+  name "SUSTAINA-OP_1"
+  rotation 0 0 1 1.5708
+  translation -1 -3.15 0
+  controller "collect_image"
+  controllerArgs ["7650" "8765"]
+}
+
+SUSTAINA-OP{
+  name "SUSTAINA-OP_2"
+  rotation 0 0 1 1.5708
+  translation -3 -3.15 0
+  controller "collect_image"
+  controllerArgs ["7651" "8766"]
+  recognitionColors [0 0 0.8]
+}
+
+SUSTAINA-OP{
+  name "SUSTAINA-OP_3"
+  rotation 0 0 1 -1.5708
+  translation -3 3.15 0
+  controller "collect_image"
+  controllerArgs ["7652" "8767"]
+  recognitionColors [0 1 0.8]
+}
+
+SUSTAINA-OP{
+  name "SUSTAINA-OP_4"
+  rotation 0 0 1 -1.5708
+  translation -1 3.15 0
+  controller "collect_image"
+  controllerArgs ["7653" "8768"]
+  recognitionColors [1 0 0.8]
+}

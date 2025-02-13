@@ -16,6 +16,7 @@ PROTO SUSTAINA-OP [
   field  SFBool      selfCollision   FALSE          # Is `Robot.selfCollision`.
   field  MFNode      toolSlot        []             # Extend the robot with new nodes at the end of the arm.
   field  SFBool      enable_backlash FALSE           # Enables backlash on all joints.
+  field  MFColor     recognitionColors [0 0 1]       # Color used for recognition.
 ]
 {
   %{
@@ -44,6 +45,8 @@ PROTO SUSTAINA-OP [
     supervisor IS supervisor
     synchronization IS synchronization
     selfCollision IS selfCollision
+    recognitionColors IS recognitionColors
+    model "SUSTAINA"
     children [
       Solid {
         translation 0.000000 0.000000 0.372500
@@ -98,10 +101,16 @@ PROTO SUSTAINA-OP [
                       children [
                         Camera {
                           name "camera_sensor"
-                          fieldOfView 1.396263
+                          fieldOfView 2.164208
                           width 640
                           height 480
                           noise 0.007000
+                          projection "cylindrical"
+                          recognition Recognition {
+                              occlusion 1
+                              frameThickness 0 
+                              segmentation TRUE
+                          }
                         }
                       ]
                     }

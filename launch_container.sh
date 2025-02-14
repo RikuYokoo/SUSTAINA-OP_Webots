@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker_image=""
+docker_image="collect_image_env"
 
 id=${1:-"1"}
 

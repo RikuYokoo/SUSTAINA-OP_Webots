@@ -1,8 +1,8 @@
 
-# SUSTAINA-OP_walking
+# collect_image
 
 Webots controller for the SUSTAINA-OP proto model.  
-This repository includes both a walking pattern generator and a walking target command sending api.
+This controller adds an image-saving feature to the [SUSTAINA-OP_walking](https://github.com/SUSTAINA-OP/SUSTAINA-OP_Webots/tree/master/webots/controllers/SUSTAINA-OP_walking).
 
 ---
 
@@ -18,50 +18,34 @@ Install required packages using pip.
 ```bash
   pip3 install -r requirements.txt
 ```
+## Docker
+```bash
+docker build -t collect_image_env -f Docker/Dockerfile .
+## start container
+./launch_container.sh
+```
 
 ---  
 ## 🧬Features
 
+### [SUSTAINA-OP_webots](https://github.com/SUSTAINA-OP/SUSTAINA-OP_Webots/tree/master/webots/controllers/SUSTAINA-OP_walking)
 - Sending walking direction by zmq and protobuf message.
 - Get image data from camera.
 - Viewing image from camera.
 
 ---  
-
+## Collect Image
+- Start "[collect_image.wbt](https://github.com/RikuYokoo/SUSTAINA-OP_Webots/blob/master/webots/world/collect_image.wbt)" and watch the robot move toward the ball.
+- Reposition the other three robots manually.
+- Move the ball so the robot will follow it and capture various images.
 ## ⚡️Example
 
 ### CLI
-
-#### **Sending walking direction.**
-
-```bash
-python3 walk_client.py <target x> <target y> <target theta>
-```
-
 
 #### **Viewing image from camera**
 ```bash
 python3 view_image.py
 ```
-
-### Python
-    
-#### Sending walking direction command from python script and receiving camera image data.
-
-```python
-import walk_client
-
-client = walk_client.WalkClient()
-
-# Send walking direction.
-client.sendCommand(0.5, 0.0, 0.3) # x, y, theta
-
-# Receive image data from camera.
-# This will return protobuf message(https://github.com/SUSTAINA-OP/SUSTAINA-OP_Webots/blob/master/webots/controllers/SUSTAINA-OP_walking/walk_command.proto). 
-image = client.getImage() 
-
-```
-
 --- 
 
 ## 🧾License

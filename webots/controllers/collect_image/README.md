@@ -35,9 +35,9 @@ docker build -t collect_image_env -f Docker/Dockerfile .
 
 ---  
 ## Collect Image
-- Start "[collect_image.wbt](https://github.com/RikuYokoo/SUSTAINA-OP_Webots/blob/master/webots/world/collect_image.wbt)" and watch the robot move toward the ball.
-- Reposition the other three robots manually.
-- Move the ball so the robot will follow it and capture various images.
+1. Start "[collect_image.wbt](https://github.com/RikuYokoo/SUSTAINA-OP_Webots/blob/master/webots/world/collect_image.wbt)" and watch the robot move toward the ball.
+1. Reposition the other three robots manually.
+1. Move the ball so the robot will follow it and capture various images.
 ## ⚡️Example
 
 ### CLI
